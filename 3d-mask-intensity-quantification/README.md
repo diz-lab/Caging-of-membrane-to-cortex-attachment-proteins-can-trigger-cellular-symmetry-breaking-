@@ -45,8 +45,8 @@ flowchart LR
 ## Installation
 
 ```bash
-git clone https://github.com/diz-lab/3d-mask-intensity-quantification.git
-cd 3d-mask-intensity-quantification
+git clone https://github.com/diz-lab/Caging-of-membrane-to-cortex-attachment-proteins-can-trigger-cellular-symmetry-breaking-.git
+cd Caging-of-membrane-to-cortex-attachment-proteins-can-trigger-cellular-symmetry-breaking-/3d-mask-intensity-quantification
 pip install -r requirements.txt
 ```
 
@@ -175,3 +175,4 @@ MIT, see [LICENSE](LICENSE).
 Ruben Tesoro Moreno
 
 Code development was supported by Claude (Anthropic).
+
