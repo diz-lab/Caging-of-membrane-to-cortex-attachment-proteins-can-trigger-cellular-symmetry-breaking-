@@ -29,8 +29,8 @@ Each folder has its own README with inputs, settings and outputs.
 ## Installation
 
 ```bash
-git clone https://github.com/diz-lab/smt-first-passage-analysis.git
-cd smt-first-passage-analysis
+git clone https://github.com/diz-lab/Caging-of-membrane-to-cortex-attachment-proteins-can-trigger-cellular-symmetry-breaking-.git
+cd Caging-of-membrane-to-cortex-attachment-proteins-can-trigger-cellular-symmetry-breaking-/smt-first-passage-analysis
 pip install -r requirements.txt
 ```
 
@@ -144,3 +144,4 @@ MIT, see [LICENSE](LICENSE).
 Srishti Dar
 
 Code development was supported by Claude (Anthropic).
+
