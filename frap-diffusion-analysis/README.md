@@ -64,7 +64,7 @@ Tested with Python 3.10, numpy 2.2, pandas 2.3, scipy 1.15, scikit-learn 1.7, ma
 
 ## Data
 
-Raw data is not included in this repository. Contact the author for access.
+Raw data is not included in this repository. It is deposited in the BioImage Archive; see the [top-level README](../README.md).
 
 ## License
 
@@ -75,3 +75,4 @@ MIT, see [LICENSE](LICENSE).
 Ruben Tesoro Moreno
 
 Code development was supported by Claude (Anthropic).
+
