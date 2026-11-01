@@ -30,8 +30,8 @@ flowchart LR
 ## Installation
 
 ```bash
-git clone https://github.com/diz-lab/pore-size-analysis.git
-cd pore-size-analysis
+git clone https://github.com/diz-lab/Caging-of-membrane-to-cortex-attachment-proteins-can-trigger-cellular-symmetry-breaking-.git
+cd Caging-of-membrane-to-cortex-attachment-proteins-can-trigger-cellular-symmetry-breaking-/pore-size-analysis
 pip install -r requirements.txt
 ```
 
@@ -94,3 +94,4 @@ MIT, see [LICENSE](LICENSE).
 Srishti Dar
 
 Code development was supported by Claude (Anthropic).
+
