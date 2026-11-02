@@ -11,8 +11,8 @@ Each folder below is one workflow, with its own README, requirements and license
 | [`dynamic-micropatterning-analysis`](dynamic-micropatterning-analysis) | Spreading and polarity of single cells after release from a micropattern | Fig 7A–D | Jupyter notebook |
 | [`frap-diffusion-analysis`](frap-diffusion-analysis) | FRAP recovery curves, fits, half-times and apparent diffusion coefficients | Fig 6B–D, S7A–C | Jupyter notebook |
 | [`3d-mask-intensity-quantification`](3d-mask-intensity-quantification) | Fluorescence intensity in 3D cell or cortex masks, and comparison of conditions | S8E, F, H, I | Jupyter notebooks |
-| [`smt-first-passage-analysis`](smt-first-passage-analysis) | Single-molecule tracking: trajectory classification, first passage and free exit times, spider plots | [TO ADD] | Python scripts |
-| [`pore-size-analysis`](pore-size-analysis) | Pore size in the actin cortex, by bandpass filter and watershed | [TO ADD] | Python script |
+| [`smt-first-passage-analysis`](smt-first-passage-analysis) | Single-molecule tracking: trajectory classification, first passage and free exit times, spider plots | Fig 5G,H | Python scripts |
+| [`pore-size-analysis`](pore-size-analysis) | Pore size in the actin cortex, by bandpass filter and watershed | Fig S6O | Python script |
 
 ## Code in each workflow
 
