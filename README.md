@@ -13,6 +13,7 @@ Each folder below is one workflow, with its own README, requirements and license
 | [`3d-mask-intensity-quantification`](3d-mask-intensity-quantification) | Fluorescence intensity in 3D cell or cortex masks, and comparison of conditions | S8E, F, H, I | Jupyter notebooks |
 | [`smt-first-passage-analysis`](smt-first-passage-analysis) | Single-molecule tracking: trajectory classification, first passage and free exit times, spider plots | Fig 5G,H | Python scripts |
 | [`pore-size-analysis`](pore-size-analysis) | Pore size in the actin cortex, by bandpass filter and watershed | Fig S6O | Python script |
+| [`strain-nemaitcs-in-vitro-matlab`](strain-nemaitcs-in-vitro-matlab) | Actin networks on supported lipid bilayers: PIV strain, nematic order, temporal autocorrelation, bundling parameter and pair correlation g(r) | Fig 2F-H, 4C,D, S4D-G | MATLAB scripts |
 
 ## Code in each workflow
 
@@ -48,9 +49,22 @@ Run the steps in this order. See the [workflow README](smt-first-passage-analysi
 
 [`pore_size_analysis.py`](pore-size-analysis/pore_size_analysis.py) filters each image, segments the pores with a watershed, and measures the size of every pore.
 
+### Strain and nematics in vitro (MATLAB)
+
+Each analysis runs on any TIFF image or stack. Run [`setup_paths.m`](strain-nemaitcs-in-vitro-matlab/setup_paths.m) once per session, then set the input file, folder or list at the top of a `run_*.m` script. Each stack writes its outputs next to it, plus one summary CSV per folder. See the [workflow README](strain-nemaitcs-in-vitro-matlab) for the methods, parameters and pre-processing.
+
+| Folder | Entry point | What it does |
+|---|---|---|
+| [`00_shared_utils`](strain-nemaitcs-in-vitro-matlab/00_shared_utils) | – | TIFF reading, CSV writing, figure saving and bounded fitting, used by all analyses |
+| [`01_PIV_strain`](strain-nemaitcs-in-vitro-matlab/01_PIV_strain) | [`run_PIV_strain.m`](strain-nemaitcs-in-vitro-matlab/01_PIV_strain/run_PIV_strain.m) | PIV between consecutive frames → strain map, strain over time, maximum strain and strain rate |
+| [`02_alignment_nematic_order`](strain-nemaitcs-in-vitro-matlab/02_alignment_nematic_order) | [`run_alignment_nematic.m`](strain-nemaitcs-in-vitro-matlab/02_alignment_nematic_order/run_alignment_nematic.m) | Local filament orientation by FFT, and nematic order parameter per frame |
+| [`03_temporal_autocorrelation`](strain-nemaitcs-in-vitro-matlab/03_temporal_autocorrelation) | [`run_temporal_autocorr.m`](strain-nemaitcs-in-vitro-matlab/03_temporal_autocorrelation/run_temporal_autocorr.m) | Temporal autocorrelation of the image, fitted with two exponentials to give the decay times |
+| [`04_bundling_parameter`](strain-nemaitcs-in-vitro-matlab/04_bundling_parameter) | [`run_bundling_parameter.m`](strain-nemaitcs-in-vitro-matlab/04_bundling_parameter/run_bundling_parameter.m) | Bundling parameter (standard deviation / mean of the thresholded image) for every frame |
+| [`05_pair_correlation_gofr`](strain-nemaitcs-in-vitro-matlab/05_pair_correlation_gofr) | [`run_pair_correlation_gofr.m`](strain-nemaitcs-in-vitro-matlab/05_pair_correlation_gofr/run_pair_correlation_gofr.m) | Pair correlation g(r) of a binary image, fitted with an exponential to give the correlation length |
+
 ## Getting started
 
-Each workflow installs on its own. For example:
+The Python workflows each install on their own. For example:
 
 ```bash
 git clone https://github.com/diz-lab/Caging-of-membrane-to-cortex-attachment-proteins-can-trigger-cellular-symmetry-breaking-.git
@@ -58,11 +72,18 @@ cd Caging-of-membrane-to-cortex-attachment-proteins-can-trigger-cellular-symmetr
 pip install -r requirements.txt
 ```
 
-All workflows were tested with Python 3.10.
+All Python workflows were tested with Python 3.10.
+
+The MATLAB workflow needs MATLAB with the Image Processing Toolbox (for the nematic order analysis). In MATLAB:
+
+```matlab
+run('strain-nemaitcs-in-vitro-matlab/setup_paths.m')
+edit run_PIV_strain   % set the input and parameters, then Run
+```
 
 ## Data
 
-The images and processed data are not in this repository. They are deposited in the BioImage Archive: [TO ADD: accession number].
+The images and processed data are not in this repository. They are deposited in the BioImage Archive: [BioStudies: https://doi.org/10.6019/S-BIAD4315].
 
 ## License
 
@@ -71,6 +92,6 @@ MIT. See the `LICENSE` file in each workflow.
 ## Contact
 
 Lead contact: Alba Diz-Muñoz (diz@embl.de), European Molecular Biology Laboratory, Heidelberg.
-Code: Rubén Tesoro-Moreno (dynamic micropatterning, FRAP, 3D mask intensity) and Srishti Dar (single-molecule tracking, pore size).
+Code: Rubén Tesoro-Moreno (dynamic micropatterning, FRAP, 3D mask intensity), Srishti Dar (single-molecule tracking, pore size) and Zachary Sun (strain and nematics in vitro, MATLAB).
 
 Code development was supported by Claude (Anthropic).
